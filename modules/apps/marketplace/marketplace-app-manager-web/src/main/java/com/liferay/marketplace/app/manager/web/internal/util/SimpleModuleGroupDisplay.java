@@ -16,6 +16,7 @@ package com.liferay.marketplace.app.manager.web.internal.util;
 
 import com.liferay.marketplace.model.App;
 import com.liferay.petra.string.StringPool;
+import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -84,6 +85,18 @@ public class SimpleModuleGroupDisplay implements ModuleGroupDisplay {
 	@Override
 	public String getDescription() {
 		return _description;
+	}
+
+	@Override
+	public String getDisplayTitle() {
+		String suiteTitle = getTitle();
+		int buildNumber = ReleaseInfo.getBuildNumber();
+
+		if ((buildNumber >= 7150) && (buildNumber < 7200)) {
+			suiteTitle = suiteTitle.replaceFirst("^Liferay CE ", "Liferay ");
+		}
+
+		return suiteTitle;
 	}
 
 	@Override
