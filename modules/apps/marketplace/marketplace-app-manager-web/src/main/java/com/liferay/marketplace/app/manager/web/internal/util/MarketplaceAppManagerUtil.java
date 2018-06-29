@@ -77,7 +77,7 @@ public class MarketplaceAppManagerUtil {
 
 		if (moduleGroupDisplay != null) {
 			PortalUtil.addPortletBreadcrumbEntry(
-				request, moduleGroupDisplay.getTitle(),
+				request, moduleGroupDisplay.getDisplayTitle(),
 				moduleGroupDisplay.getDisplayURL(renderResponse));
 		}
 
@@ -113,7 +113,7 @@ public class MarketplaceAppManagerUtil {
 			appDisplay.getDisplayURL(renderResponse));
 
 		PortalUtil.addPortletBreadcrumbEntry(
-			request, moduleGroupDisplay.getTitle(), null);
+			request, moduleGroupDisplay.getDisplayTitle(), null);
 	}
 
 	public static String[] getCategories(List<App> apps, List<Bundle> bundles) {
